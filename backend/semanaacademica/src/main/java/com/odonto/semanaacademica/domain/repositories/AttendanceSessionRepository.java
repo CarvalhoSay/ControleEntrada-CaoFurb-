@@ -13,4 +13,5 @@ Optional<AttendanceSession> findByParticipantAndEndTimeIsNull (Participant parti
 
 List<AttendanceSession> findByParticipant(Participant participant);
 
+    Optional<AttendanceSession> findFirstByParticipantAndEndTimeIsNull(Participant participant);
 }

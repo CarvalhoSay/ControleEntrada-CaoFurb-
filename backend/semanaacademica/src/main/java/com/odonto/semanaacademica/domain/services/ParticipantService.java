@@ -19,6 +19,7 @@ public class ParticipantService {
     @Autowired
     private ParticipantRepository participantRepository;
 
+    @Transactional
     public List<ParticipantDTO> findAll(){
         List<Participant> participants = participantRepository.findAll();
 

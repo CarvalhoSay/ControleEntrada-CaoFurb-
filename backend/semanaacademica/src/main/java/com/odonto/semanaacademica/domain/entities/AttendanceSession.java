@@ -18,7 +18,7 @@ public class AttendanceSession {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    private AttendanceSession(){
+    public AttendanceSession(){
 
     }
 
