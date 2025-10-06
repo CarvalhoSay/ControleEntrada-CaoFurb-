@@ -61,4 +61,5 @@ public class AttendanceSessionDTO {
     public void setEndTime(LocalDateTime endTime) {
         this.endTime = endTime;
     }
+    //teste
 }
