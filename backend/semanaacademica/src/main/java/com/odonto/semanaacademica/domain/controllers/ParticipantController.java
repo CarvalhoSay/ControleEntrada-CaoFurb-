@@ -17,8 +17,6 @@ public class ParticipantController {
     @Autowired
     ParticipantService participantService;
 
-    @Autowired
-    AttendanceSession attendanceSession;
 
     @GetMapping("/find")
     public ResponseEntity<List<ParticipantDTO>> getParticipants(){
