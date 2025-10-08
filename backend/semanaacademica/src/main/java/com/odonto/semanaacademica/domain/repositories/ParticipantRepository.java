@@ -11,4 +11,5 @@ public interface ParticipantRepository extends JpaRepository<Participant, Long> 
 
     Optional<Participant> findByBarcode(String barcode);
 
+    List<Participant> findByNameContainingIgnoreCaseOrBarcodeContainingIgnoreCase(String name, String barcode);
 }

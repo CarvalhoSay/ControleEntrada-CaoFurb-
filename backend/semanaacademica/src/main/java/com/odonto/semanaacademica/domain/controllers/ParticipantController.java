@@ -11,25 +11,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/participant")
+@RequestMapping("/api/participants")
 public class ParticipantController {
 
     @Autowired
     ParticipantService participantService;
 
+    @GetMapping
+    public ResponseEntity<List<ParticipantDTO>> getParticipants() {
+        return ResponseEntity.ok(participantService.findAll());
+    }
 
-    @GetMapping("/find")
-    public ResponseEntity<List<ParticipantDTO>> getParticipants(){
-        List<ParticipantDTO> list = participantService.findAll();
-        return ResponseEntity.ok().body(list);
+
+    @GetMapping("/search")
+    public ResponseEntity<List<ParticipantDTO>> search(@RequestParam String q) {
+        return ResponseEntity.ok(participantService.search(q));
+    }
+
+    @GetMapping("/by-barcode/{barcode}")
+    public ResponseEntity<ParticipantDTO> getByBarcodeAlias(@PathVariable String barcode) {
+        return ResponseEntity.ok(participantService.getDetailedByBarcode(barcode));
     }
 
     @GetMapping("/barcode/{barcode}")
     public ResponseEntity<ParticipantDTO> getByBarcode(@PathVariable String barcode) {
-        ParticipantDTO dto = participantService.getByBarcodeOrThrow(barcode);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(participantService.getDetailedByBarcode(barcode));
     }
-
 
 
 

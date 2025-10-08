@@ -1,0 +1,199 @@
+
+:root{
+  --vino:#7a0f16;
+  --vino-dark:#5d0b10;
+  --vino-grad-1:#3a0b0c;
+  --vino-grad-2:#6e0d12;
+  --tint:#fbe9ea;
+  --ring:#f3c8cb;
+  --bg-soft:#faf7f7;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', 'Noto Sans', Arial, 'Apple Color Emoji','Segoe UI Emoji'; background:#fff; color:#1f2937}
+a{color:var(--vino); text-decoration:none}
+a:hover{text-decoration:underline}
+button{cursor:pointer}
+.shadow{box-shadow:0 10px 24px rgba(0,0,0,.08)}
+
+.container{max-width:960px;margin:0 auto;padding:24px}
+.card{background:#fff;border:1px solid #f0e6e7;border-radius:16px;padding:18px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.kbd{padding:2px 6px;border:1px solid #e5e7eb;border-radius:6px;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;font-size:12px;background:#f9fafb}
+.btn{border:none;border-radius:16px;padding:12px 18px;font-weight:700}
+.btn-primary{background:var(--vino);color:#fff}
+.btn-primary:active{background:var(--vino-dark)}
+.btn-outline{background:#fff; border:1px solid var(--vino); color:var(--vino)}
+.badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;border:1px solid var(--ring);background:var(--tint);color:var(--vino)}
+.header-band{background:linear-gradient(180deg,var(--vino-grad-1), var(--vino-grad-2));border-radius:22px;padding:18px 24px;color:#fff}
+.grid{display:grid; gap:16px}
+
+/* === Recepção === */
+.recepcao-container {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.scan-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.scan-form label {
+  grid-column: 1 / -1;
+  font-weight: 600;
+}
+
+.barcode-input {
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.barcode-input:focus {
+  border-color: var(--vino);
+  box-shadow: 0 0 0 3px rgba(122, 15, 22, 0.15);
+}
+
+.btn-scan {
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: var(--vino);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-scan:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card-participant {
+  margin-top: 12px;
+  border: 1px solid #f0e6e7;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(17, 24, 39, 0.06);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.code {
+  color: #6b7280;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  flex: 1 1 180px;
+  padding: 20px 26px;             /* maior */
+  border-radius: 16px;             /* mais chamativo */
+  border: none;
+  font-size: 1.25rem;              /* maior */
+  font-weight: 800;                /* bem destacado */
+  cursor: pointer;
+  transition: transform 0.06s ease, filter 0.06s ease;
+}
+
+.actionBtn.entry {
+  background: #16a34a;            /* verde */
+  color: #fff;
+}
+
+.actionBtn.exit {
+  background: #dc2626;            /* vermelho */
+  color: #fff;
+}
+
+.actionBtn:hover {
+  filter: brightness(1.05);
+}
+
+.actionBtn:active {
+  transform: translateY(1px);
+}
+
+.actionBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hint {
+  margin-top: 10px;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.feedback {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fbe9ea;
+  color: var(--vino-dark);
+  font-weight: 600;
+  border: 1px solid var(--ring);
+}
+
+.empty-hint {
+  margin-top: 10px;
+  color: #6b7280;
+}
+
+/* === Tabela Dashboard === */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.table thead th {
+  text-align: left;
+  padding: 12px 10px;
+  color: #6b7280;
+  border-bottom: 1px solid #f0e6e7;
+  background: var(--bg-soft);
+}
+.table tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.table tbody tr:hover {
+  background: #fafafa;
+}
+.table-filter-input:focus {
+  border-color: var(--vino);
+  box-shadow: 0 0 0 3px rgba(122, 15, 22, 0.15);
+}
+.btn.btn-outline:hover {
+  background: var(--bg-soft);
+}

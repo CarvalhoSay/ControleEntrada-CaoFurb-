@@ -2,22 +2,27 @@ package com.odonto.semanaacademica.domain.services;
 
 import com.odonto.semanaacademica.domain.dto.ParticipantDTO;
 import com.odonto.semanaacademica.domain.entities.Participant;
+import com.odonto.semanaacademica.domain.repositories.AttendanceSessionRepository;
 import com.odonto.semanaacademica.domain.repositories.ParticipantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.odonto.semanaacademica.domain.entities.AttendanceSession;
+import java.time.LocalDateTime;
+
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
+
 
 @Service
 public class ParticipantService {
 
     @Autowired
     private ParticipantRepository participantRepository;
+
+    @Autowired
+    private AttendanceSessionRepository attendanceSessionRepository;
 
     @Transactional
     public List<ParticipantDTO> findAll(){
@@ -45,5 +50,27 @@ public class ParticipantService {
         return new ParticipantDTO(entity);
     }
 
+    public List<ParticipantDTO> search(String term) {
+        if (term == null || term.isBlank()) return findAll();
+        return participantRepository
+                .findByNameContainingIgnoreCaseOrBarcodeContainingIgnoreCase(term.trim(), term.trim())
+                .stream().map(ParticipantDTO::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public ParticipantDTO getDetailedByBarcode(String barcode) {
+        Participant entity = participantRepository.findByBarcode(barcode)
+                .orElseThrow(() -> new IllegalArgumentException("Participante não encontrado"));
+
+        boolean hasOpen = attendanceSessionRepository
+                .findFirstByParticipantAndEndTimeIsNull(entity).isPresent();
+
+        LocalDateTime lastEntryAt = attendanceSessionRepository
+                .findTopByParticipantOrderByStartTimeDesc(entity)
+                .map(AttendanceSession::getStartTime)
+                .orElse(null);
+
+        return new ParticipantDTO(entity.getId(), entity.getName(), entity.getBarcode(), hasOpen, lastEntryAt);
+    }
 
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ad043e9a-3f72-4204-9030-5801463a76df" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/security/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/controllers/AttendanceSessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/controllers/AttendanceSessionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/controllers/ParticipantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/controllers/ParticipantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/dto/ParticipantDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/dto/ParticipantDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/repositories/AttendanceSessionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/repositories/AttendanceSessionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/repositories/ParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/repositories/ParticipantRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/services/AttendanceSessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/services/AttendanceSessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/services/ParticipantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/semanaacademica/src/main/java/com/odonto/semanaacademica/domain/services/ParticipantService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="33iJuec8Ckp1mZlfv6byFmyDSM2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/ProjetosEstudos/Workspace/ws-semanaacademica/frontend-semana-academica&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\ProjetosEstudos\Workspace\ws-semanaacademica\frontend-semana-academica\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="frontend-semana-academica" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="frontend-semana-academica" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad043e9a-3f72-4204-9030-5801463a76df" name="Changes" comment="" />
+      <created>1759794182654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759794182654</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ts" />
+  </component>
+</project>

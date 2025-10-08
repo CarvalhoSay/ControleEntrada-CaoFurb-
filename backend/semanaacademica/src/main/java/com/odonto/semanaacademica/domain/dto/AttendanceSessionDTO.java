@@ -22,6 +22,15 @@ public class AttendanceSessionDTO {
         this.endTime = endTime;
     }
 
+    public static AttendanceSessionDTO fromEntity(AttendanceSession entity) {
+        return new AttendanceSessionDTO(
+                entity.getParticipant().getName(),
+                entity.getParticipant().getBarcode(),
+                entity.getStartTime(),
+                entity.getEndTime()
+        );
+    }
+
 
     public AttendanceSessionDTO(AttendanceSession entity) {
         participantName = entity.getParticipant().getName();

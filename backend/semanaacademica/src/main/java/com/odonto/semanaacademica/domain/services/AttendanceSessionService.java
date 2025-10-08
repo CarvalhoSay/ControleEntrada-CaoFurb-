@@ -27,22 +27,16 @@ public class AttendanceSessionService {
     @Autowired
     private ParticipantService participantService;
 
-    @Transactional
-    public AttendanceSessionDTO registerEntrya(String barcode){
 
-        ParticipantDTO dto = participantService.getByBarcodeOrThrow(barcode);
-
-        Participant participant = participantRepository.findByBarcode(dto.getBarcode())
-                .orElseThrow(() -> new jakarta.persistence.EntityNotFoundException(
-                        "Participante não encontrado para o código de barras: " + dto.getBarcode()));
-
-
-
-        return null;
-    }
 
     @Transactional
     public AttendanceSessionDTO registerEntry(String barcode) {
+
+        if (barcode == null || barcode.trim().isEmpty()) {
+            throw new IllegalArgumentException("Código de barras não pode ser vazio.");
+        }
+
+
         // 1) Validação + obtenção do DTO (já normaliza/valida internamente)
         ParticipantDTO dto = participantService.getByBarcodeOrThrow(barcode);
 
@@ -80,6 +74,11 @@ public class AttendanceSessionService {
 
     @Transactional
     public AttendanceSessionDTO exitSession(String barcode){
+        if (barcode == null || barcode.trim().isEmpty()) {
+            throw new IllegalArgumentException("Código de barras não pode ser vazio.");
+        }
+
+
         //valida se o codigo de barras passado é valido.
         ParticipantDTO dto = participantService.getByBarcodeOrThrow(barcode);
 
@@ -123,6 +122,13 @@ public class AttendanceSessionService {
                         s.getStartTime(),
                         s.getEndTime()
                 ))
+                .toList();
+    }
+
+    public List<AttendanceSessionDTO> findByParticipantBarcode(String barcode) {
+        return attendanceSessionRepository.findByParticipantBarcode(barcode)
+                .stream()
+                .map(AttendanceSessionDTO::fromEntity)
                 .toList();
     }
 }
