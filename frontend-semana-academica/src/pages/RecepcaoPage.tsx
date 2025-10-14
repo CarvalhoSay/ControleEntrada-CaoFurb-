@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import axios from "axios";
+import api from "../lib/api";
 
 type ParticipantDTO = {
   id: string;
