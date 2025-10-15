@@ -6,32 +6,27 @@ function trimTrailingSlash(url?: string) {
 }
 
 const api = axios.create({
-  baseURL: trimTrailingSlash(import.meta.env.VITE_API_BASE_URL),
-  // withCredentials: true, // se usar sessão/cookies no futuro
+  baseURL: trimTrailingSlash(import.meta.env.VITE_API_URL), // <-- use VITE_API_URL
+  // withCredentials: true,
 });
 
-// LOGA TUDO NO CONSOLE (para debug)
+// DEBUG opcional
 api.interceptors.request.use((config) => {
   const full = `${config.baseURL || ""}${config.url || ""}`;
-  console.log("[API→] ", config.method?.toUpperCase(), full, { data: config.data });
+  console.log("[API→]", config.method?.toUpperCase(), full);
   return config;
 });
 api.interceptors.response.use(
   (res) => {
     const full = `${res.config.baseURL || ""}${res.config.url || ""}`;
-    console.log("[API✓] ", res.status, full, res.data);
+    console.log("[API✓]", res.status, full);
     return res;
   },
   (err) => {
-    const cfg = err?.config || {};
-    const full = `${cfg.baseURL || ""}${cfg.url || ""}`;
-    console.error("[API✗] ", cfg.method?.toUpperCase(), full, err?.response?.status, err?.response?.data || err?.message);
-    throw err;
+    const full = `${err.config?.baseURL || ""}${err.config?.url || ""}`;
+    console.log("[API✗]", err.response?.status, full, err.response?.data);
+    return Promise.reject(err);
   }
 );
-
-// expõe para teste no console (F12 → digite: window.api.get("/api/participants"))
-// @ts-ignore
-if (typeof window !== "undefined") (window as any).api = api;
 
 export default api;
