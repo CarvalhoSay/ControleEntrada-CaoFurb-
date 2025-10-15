@@ -15,16 +15,14 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-// Dev local (Vite)
                         .allowedOriginPatterns(
                                 "http://localhost:*",
                                 "http://127.0.0.1:*",
-// Produção (qualquer subdomínio do Vercel)
-                                "https://*.vercel.app"
+                                "https://*.vercel.app",
+                                "https://controle-entrada-cao-furb-uaaq.vercel.app"
                         )
                         .allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS")
                         .allowedHeaders("*");
-// Se um dia usar cookies/sessão: adicione .allowCredentials(true)
             }
         };
     }
