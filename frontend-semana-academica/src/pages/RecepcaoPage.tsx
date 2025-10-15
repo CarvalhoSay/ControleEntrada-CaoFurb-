@@ -28,7 +28,7 @@ export default function RecepcaoPage() {
     setLoadingScan(true);
 
     try {
-      const res = await axios.get<ParticipantDTO>(
+      const res = await api.get<ParticipantDTO>(
         `/api/participants/barcode/${encodeURIComponent(barcode.trim())}`
       );
       setParticipant(res.data);
@@ -56,7 +56,7 @@ export default function RecepcaoPage() {
     try {
       const payload = { barcode: participant.barcode };
       const url = kind === "ENTRY" ? "/api/attendance/entry" : "/api/attendance/exit";
-      await axios.post(url, payload);
+      await api.post(url, payload);
 
       const successText =
         kind === "ENTRY"

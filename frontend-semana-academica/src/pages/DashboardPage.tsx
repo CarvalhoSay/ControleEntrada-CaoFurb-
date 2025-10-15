@@ -62,7 +62,7 @@ export default function DashboardPage() {
         setLoading(true);
 
         // 1) participantes
-        const pRes = await axios.get<Participant[]>("/api/participants");
+        const pRes = await api.get<Participant[]>("/api/participants");
         const base = pRes.data ?? [];
         setParticipants(base);
 
@@ -70,7 +70,7 @@ export default function DashboardPage() {
         const sessionsByBarcode = await Promise.all(
           base.map(async (p) => {
             try {
-              const sRes = await axios.get<AttendanceSession[]>(
+              const sRes = await api.get<AttendanceSession[]>(
                 `/api/attendance/by-participant/${encodeURIComponent(p.barcode)}/sessions`
               );
               return { barcode: p.barcode, sessions: sRes.data ?? [] };
@@ -155,7 +155,7 @@ export default function DashboardPage() {
     ];
     const esc = (v: any) => {
       const s = v == null ? "" : String(v);
-      if (/[;"\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+      if (/[;\"\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
       return s;
     };
     const lines = [
